@@ -1,0 +1,50 @@
+### 1. Crear Alumno (POST)
+POST http://localhost:8080/api/alumnos
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "nombre": "Carlos",
+  "apellidos": "García Pérez",
+  "fechaNacimiento": "2002-05-14",
+  "telefonoUno": "600112233",
+  "telefonoDos": "954001122",
+  "emailUno": "carlos.garcia@altair.edu",
+  "emailDos": null
+}
+
+### 2. Consultar Todos los Alumnos (GET)
+GET http://localhost:8080/api/alumnos
+
+### 3. Actualizar Alumno (PUT)
+PUT http://localhost:8080/api/alumnos/1
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "nombre": "Carlos Manuel",
+  "apellidos": "García Pérez",
+  "fechaNacimiento": "2002-05-14",
+  "telefonoUno": "600112233",
+  "telefonoDos": "611223344",
+  "emailUno": "carlos.garcia@altair.edu",
+  "emailDos": "carlos.personal@email.com"
+}
+
+### 4. Probar DNI Duplicado (POST)
+POST http://localhost:8080/api/alumnos
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "nombre": "Otro Nombre",
+  "apellidos": "García Pérez",
+  "fechaNacimiento": "2002-05-14",
+  "telefonoUno": "600112233",
+  "telefonoDos": null,
+  "emailUno": "otro.email@altair.edu",
+  "emailDos": null
+}
+
+### 5. Eliminar Alumno (DELETE)
+DELETE http://localhost:8080/api/alumnos/1

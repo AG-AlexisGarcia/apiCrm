@@ -1,0 +1,47 @@
+### 1. Registrar una nueva falta (POST)
+POST http://localhost:8080/api/faltas
+Content-Type: application/json
+
+{
+  "idAlumno": 1,
+  "fecha": "2026-10-21",
+  "tramoHorario": "1ª Hora",
+  "justificada": false,
+  "motivo": "Retraso injustificado a primera hora"
+}
+
+### 2. Consultar todas las faltas (GET)
+GET http://localhost:8080/api/faltas
+
+### 3. Consultar faltas filtradas por ID de Alumno (GET)
+GET http://localhost:8080/api/faltas/alumno/1
+
+### 4. Consultar una falta por su ID (GET)
+GET http://localhost:8080/api/faltas/1
+
+### 5. Actualizar/Justificar una falta existente (PUT)
+PUT http://localhost:8080/api/faltas/1
+Content-Type: application/json
+
+{
+  "idAlumno": 1,
+  "fecha": "2026-10-21",
+  "tramoHorario": "1ª Hora",
+  "justificada": true,
+  "motivo": "Justificante médico entregado a secretaría"
+}
+
+### 6. Probar validación de falta duplicada en misma fecha/tramo (POST -> 409 Conflict)
+POST http://localhost:8080/api/faltas
+Content-Type: application/json
+
+{
+  "idAlumno": 1,
+  "fecha": "2026-10-21",
+  "tramoHorario": "1ª Hora",
+  "justificada": false,
+  "motivo": "Intento de registro duplicado"
+}
+
+### 7. Eliminar una falta (DELETE -> 204 No Content)
+DELETE http://localhost:8080/api/faltas/1
